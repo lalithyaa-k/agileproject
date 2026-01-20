@@ -69,4 +69,20 @@
 </div>
 
 <script>
-    fun
+    function login() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const error = document.getElementById("error");
+
+        // Dummy credentials for demo
+        if (username === "21BCE1234" && password === "ffcs123") {
+            alert("Login Successful!");
+            window.location.href = "index.html"; // Redirect to FFCS planner
+        } else {
+            error.textContent = "Invalid Registration Number or Password";
+        }
+    }
+</script>
+
+</body>
+</html>

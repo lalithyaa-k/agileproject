@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FFCS Planner - Login</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .login-container {
+            width: 320px;
+            margin: 120px auto;
+            padding: 25px;
+            background-color: white;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.15);
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-container input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .login-container button {
+            width: 95%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #45a049;
+        }
+
+        #error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-container">
+    <h2>FFCS Planner Login</h2>
+
+    <input type="text" id="username" placeholder="Enter Registration Number">
+    <input type="password" id="password" placeholder="Enter Password">
+
+    <button onclick="login()">Login</button>
+
+    <p id="error"></p>
+</div>
+
+<script>
+    function login() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const error = document.getElementById("error");
+
+        // Dummy credentials for demo
+        if (username === "21BCE1234" && password === "ffcs123") {
+            alert("Login Successful!");
+            window.location.href = "index.html"; // Redirect to FFCS planner
+        } else {
+            error.textContent = "Invalid Registration Number or Password";
+        }
+    }
+</script>
+
+</body>
+</html>

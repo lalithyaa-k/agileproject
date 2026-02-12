@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Checkout Code') {
+            steps {
+                git 'https://github.com/your-username/your-repo.git'
+            }
+        }
+
+        stage('Compile') {
+            steps {
+                sh 'javac HelloWorld.java'
+            }
+        }
+
+        stage('Run Program') {
+            steps {
+                sh 'java HelloWorld'
+            }
+        }
+
+        stage('Archive Artifacts') {
+            steps {
+                archiveArtifacts artifacts: '*.class', fingerprint: true
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build SUCCESSFUL '
+        }
+        failure {
+            echo 'Build FAILED '
+        }
+    }
+}

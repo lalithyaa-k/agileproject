@@ -3,12 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                echo "Code checkout done automatically by Jenkins"
-            }
-        }
-
         stage('Build') {
             steps {
                 echo "Building project..."
@@ -19,6 +13,21 @@ pipeline {
             steps {
                 echo "Running tests..."
             }
+        }
+    }
+
+    post {
+
+        success {
+            echo "Build completed successfully "
+        }
+
+        failure {
+            echo "Build failed "
+        }
+
+        always {
+            echo "Post-build actions executed."
         }
     }
 }

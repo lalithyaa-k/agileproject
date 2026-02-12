@@ -3,21 +3,23 @@ pipeline {
 
     stages {
 
-        stage('Checkout Code') {
+        stage('Checkout') {
             steps {
-                git 'https://github.com/your-username/your-repo.git'
+                echo 'Code checked out automatically by Jenkins'
             }
         }
 
         stage('Compile') {
             steps {
-                sh 'javac HelloWorld.java'
+                echo 'Compiling Java file...'
+                bat 'javac HelloWorld.java'
             }
         }
 
         stage('Run Program') {
             steps {
-                sh 'java HelloWorld'
+                echo 'Running Java Program...'
+                bat 'java HelloWorld'
             }
         }
 
